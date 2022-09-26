@@ -1,9 +1,22 @@
-const newGameboard = () => {
-    const testGame = () => console.log('hello!');
-    return { testGame };
-  };
+const gameState = string => {
+    const gameboard = (() => {
+
+        const gameboard = []
+        return { 
+          gameboard 
+        };
   
-  const game1 = newGameboard();
-    
-  jeff.testGame(); // calls the function and logs 'hello!'
-  
+    })();
+
+    const newPlayer = () => {
+      const player = []
+      return { player };
+    };
+      
+    const player1 = newPlayer();
+    const player2 = newPlayer();
+
+    return { gameboard, player1, player2 };
+
+}
+
