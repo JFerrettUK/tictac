@@ -1,6 +1,8 @@
 h1 {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    color: rgb(77, 62, 116);
+
 }
 
 .gameContainer {
@@ -8,18 +10,26 @@ h1 {
     justify-content: center;
     grid-template-columns: 150px 150px 150px;
     grid-template-rows: 150px 150px 150px;
+    gap: 5px;
 }
 
 .gameCube {
+    background-color: rgb(206, 214, 226);
     display: grid;
     border: 5px white solid;
-    background-color: lightgrey;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-size: 55px;
     font-family: Verdana, Tahoma, sans-serif;
     cursor: default;
+    border-radius: 15px;
+    color: rgb(77, 62, 116);
+    font-weight: 900;
+    border: 2px rgb(77, 62, 116) solid;
 }
 
-
+.gameText {
+    text-align: center;
+    font-family: Verdana, Tahoma, sans-serif;
+}
