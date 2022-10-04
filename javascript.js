@@ -1,8 +1,18 @@
 // If turnOrder is an even number, it's player 1's turn. If it's odd, it's player 2's turn.
 let turnOrder = 0;
-
 let gameWon = false;
 const gameboardArrayBase = ["", "", "", "", "", "", "", "", ""]
+
+const nameForm = document.getElementById("nameForm");
+nameForm.addEventListener("submit", e => {
+  console.log("test")
+  e.preventDefault();
+  let player1 = document.getElementById('player1').value;
+  let player2 = document.getElementById('player2').value;
+  console.log(player1, player2)
+});
+
+
 
 const gameboard = (i) => { 
 
@@ -10,7 +20,7 @@ const gameboard = (i) => {
     return n % 2 == 0;
   }
 
-  const player = (i) => {
+  const gameState = (i) => {
     if (gameWon == true) {
       return;
     } else if (document.getElementById(`box${i}`).textContent == "" && isEven(turnOrder) == true) {
@@ -89,7 +99,7 @@ const gameboard = (i) => {
     } 
   }
 
-  player(i);
+  gameState(i);
   findWinner();
 }
 
@@ -97,15 +107,11 @@ const resetGame = () => {
   document.getElementById(`gameText`).textContent = "Player 1: Go!";
   gameWon = false;
 
-  function resetGameboard(gameboardArrayBase) {
+  const resetGameboard = (gameboardArrayBase) => {
     for (var i = 0; i < gameboardArrayBase.length; i++) {
       document.getElementById(`box${i}`).textContent = "";
       gameboardArrayBase[i] = "";
     }
   }
   resetGameboard(gameboardArrayBase)
-
-  return { 
-    gameboardArrayBase
-  }
 }

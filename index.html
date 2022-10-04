@@ -10,7 +10,19 @@
 </head>
 <body>
     <h1 class="titleText">Tic | Tac | Toe</h1>
-    <div class="gameText" id="gameText">Let the game begin... You're up, Player 1!</div>
+        <form class="nameContainer" id="nameForm">
+            <div class="player1">
+                <label for="fname">Player 1:</label>
+                <input type="text" id="player1" name="player1">
+            </div>
+            <div class="player2">
+                <label for="fname">Player 2:</label>
+                <input type="text" id="player2" name="player2">
+            </div>
+            <input type="submit" value="Submit" class="button">
+        </form>
+    <br>
+      <div class="gameText" id="gameText">Let the game begin... You're up, Player 1!</div>
     <br>
     <div class="gameContainer">
         <div class="gameCube" id="box0" onclick="gameboard(0)"></div>
@@ -24,7 +36,7 @@
         <div class="gameCube" id="box8" onclick="gameboard(8)"></div>
     </div>
     <div class="buttonCont" id="buttonCont">
-        <button class="resetButton"  onclick="resetGame()">Restart Game</button>
+        <button class="button" onclick="resetGame()">Restart Game</button>
     </div>
 </body>
 </html>
