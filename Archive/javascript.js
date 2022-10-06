@@ -53,7 +53,6 @@ const gameboard = (i) => {
   
     if (box0 == "X" && box1 == "X" && box2 == "X") {
       document.getElementById(`gameText`).textContent = "Player 1 wins! Game over.";
-      document.getElementById(`buttonCont`).display = "flex";
       gameWon = true;
     } else if (box3 == "X" && box4 == "X" && box5 == "X") {
       document.getElementById(`gameText`).textContent = "Player 1 wins! Game over.";
