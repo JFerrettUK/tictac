@@ -1,7 +1,7 @@
-let gameboard = (function () {
+const gameboard = (function () {
 
     //the array for the gameboard i.e. what should be displayed on the screen
-    gameboardArray = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
+    let gameboardArray = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
 
     // turn order variable -- who's controlling the game?
     let controller = 0;
@@ -11,9 +11,10 @@ let gameboard = (function () {
     return {
         getArray: function() { return gameboardArray },
 
-        getTurn: function() { return controller },
+        setArrayX: function(value) { gameboardArray[value] = "X" },
+        setArrayO: function(value) { gameboardArray[value] = "O" },
 
-        setTurn: function(value) { controller = value },
+        getTurn: function() { return controller },
 
         nextTurn: function() {
             controller += 1;
@@ -25,24 +26,19 @@ let gameboard = (function () {
     }
 })();
 
-gameboard.nextTurn();
-console.log(gameboard.getTurn());
-
-// factory to make a player object for player1 and player2
-
+// factory function to make a player object for player1 and player2
 const Player = (name) => {
     const getName  = () => name;
     return { getName };
 };
-  
+
 const player1 = Player('jim');
 const player2 = Player('jeff');
   
-// write a JavaScript function that will render the contents of the gameboard array to the webpage
-
-
 //loop through the array to populate
 const populateGameboard = function(i) {
-    console.log(gameboard.getArray())
-    document.getElementById(`box${i}`).textContent = i;
+    let gameScore = gameboard.getArray();
+    for (var i = 0; i < gameScore.length; i++) {
+        document.getElementById(`box${i}`).textContent = gameScore[i];
+    }
 }
