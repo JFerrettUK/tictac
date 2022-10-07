@@ -1,7 +1,7 @@
 const gameboard = (function () {
 
     //the array for the gameboard i.e. what should be displayed on the screen
-    let gameboardArray = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
+    let gameboardArray = ['', '', '', '', '', '', '', '', '']
 
     // turn order variable -- who's controlling the game?
     let controller = 0;
@@ -31,10 +31,14 @@ const Player = (name) => {
     const getName  = () => name;
     return { getName };
 };
-
 const player1 = Player('jim');
 const player2 = Player('jeff');
-  
+
+//if input value (controller) is even, it's player 1's turn
+const findPlayer1Turn = (n) => {
+    return n % 2 == 0;
+}
+
 //loop through the array to populate
 const populateGameboard = function(i) {
     let gameScore = gameboard.getArray();
@@ -42,3 +46,18 @@ const populateGameboard = function(i) {
         document.getElementById(`box${i}`).textContent = gameScore[i];
     }
 }
+
+// functions that allow players to add marks to a specific mark on the array
+const markArray = function(i) {
+    let turnNow = gameboard.getTurn();
+    let array = gameboard.getArray();
+    let arrayDigit = array[i];
+
+    if (findPlayer1Turn(turnNow) == true && arrayDigit == '') {
+        gameboard.setArrayX(i);
+    } else {
+        gameboard.setArrayO(i);
+    }
+    gameboard.nextTurn()
+}
+

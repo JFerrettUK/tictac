@@ -6,7 +6,7 @@ h1 {
 }
 
 .nameContainer {
-    display: grid;
+    display: none;
     justify-content: center;
     font-weight: 600;
     font-family: Verdana, Tahoma, sans-serif;
