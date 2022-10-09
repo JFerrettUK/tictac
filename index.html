@@ -10,33 +10,34 @@
 </head>
 <body>
     <h1 class="titleText">Tic | Tac | Toe</h1>
-        <form class="nameContainer" id="nameForm">
-            <div class="player1">
-                <label for="fname">Player 1:</label>
-                <input type="text" id="player1" name="player1">
-            </div>
-            <div class="player2">
-                <label for="fname">Player 2:</label>
-                <input type="text" id="player2" name="player2">
-            </div>
-            <input type="submit" value="Submit" class="button">
-        </form>
-    <br>
-      <div class="gameText" id="gameText">Let the game begin... You're up, Player 1!</div>
-    <br>
-    <div class="gameContainer">
-        <div class="gameCube" id="box0"></div>
-        <div class="gameCube" id="box1"></div>
-        <div class="gameCube" id="box2"></div>
-        <div class="gameCube" id="box3"></div>
-        <div class="gameCube" id="box4"></div>
-        <div class="gameCube" id="box5"></div>
-        <div class="gameCube" id="box6"></div>
-        <div class="gameCube" id="box7"></div>
-        <div class="gameCube" id="box8"></div>
-    </div>
-    <div class="buttonCont" id="buttonCont">
-        <button class="button" id="resetButton">Restart Game</button>
+    <form class="nameContainer" id="nameForm">
+        <div class="player1">
+            <label for="fname">Player 1:</label>
+            <input minlength="3" type="text" id="player1" name="player1" value="">
+        </div>
+        <div class="player2">
+            <label for="fname">Player 2:</label>
+            <input minlength="3" type="text" id="player2" name="player2" value="">
+        </div>
+        <input type="submit" value="Submit" class="button">
+    </form>
+    <div class="textGameCont" id="textGameCont">
+        <div class="gameText" id="gameText">Let the game begin... You're up, Player 1!</div>
+        <br>
+        <div class="gameContainer">
+            <div class="gameCube" id="box0"></div>
+            <div class="gameCube" id="box1"></div>
+            <div class="gameCube" id="box2"></div>
+            <div class="gameCube" id="box3"></div>
+            <div class="gameCube" id="box4"></div>
+            <div class="gameCube" id="box5"></div>
+            <div class="gameCube" id="box6"></div>
+            <div class="gameCube" id="box7"></div>
+            <div class="gameCube" id="box8"></div>
+        </div>
+        <div class="buttonCont" id="buttonCont">
+            <button class="button" id="resetButton">Restart Game</button>
+        </div>
     </div>
 </body>
 </html>

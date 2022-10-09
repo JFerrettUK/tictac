@@ -6,11 +6,15 @@ h1 {
 }
 
 .nameContainer {
-    display: none;
+    display: grid;
     justify-content: center;
     font-weight: 600;
     font-family: Verdana, Tahoma, sans-serif;
     gap: 10px;
+}
+
+.textGameCont {
+    display: none;
 }
 
 .gameContainer {

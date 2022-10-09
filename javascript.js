@@ -51,10 +51,10 @@ const gameboard = (function () {
         
             if (gameboard.findPlayer1Turn(turnNow) == true && arrayDigit == '') {
                 gameboard.setArrayX(i);
-                document.getElementById(`gameText`).textContent = "Player 2: Go!";
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2}: Go!`;
             } else if (arrayDigit == '') {
                 gameboard.setArrayO(i);
-                document.getElementById(`gameText`).textContent = "Player 1: Go!";
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player1}: Go!`;
             } else {
                 return
             }
@@ -84,52 +84,52 @@ const gameboard = (function () {
             let box8 = gameboardArray[8]
           
             if (box0 == "X" && box1 == "X" && box2 == "X") {
-                document.getElementById(`gameText`).textContent = `Player 1 wins! Game over.`;
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player1} wins! Game over.`;
                 gameboard.finishGame()
             } else if (box3 == "X" && box4 == "X" && box5 == "X") {
-                document.getElementById(`gameText`).textContent = `Player 1 wins! Game over.`;
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player1} wins! Game over.`;
                 gameboard.finishGame()
             } else if (box6 == "X" && box7 == "X" && box8 == "X") {
-                document.getElementById(`gameText`).textContent = `Player 1 wins! Game over.`;
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player1} wins! Game over.`;
                 gameboard.finishGame()
             } else if (box0 == "X" && box3 == "X" && box6 == "X") {
-                document.getElementById(`gameText`).textContent = `Player 1 wins! Game over.`;
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player1} wins! Game over.`;
                 gameboard.finishGame()
             } else if (box1 == "X" && box4 == "X" && box7 == "X") {
-                document.getElementById(`gameText`).textContent = `Player 1 wins! Game over.`;
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player1} wins! Game over.`;
                 gameboard.finishGame()
             } else if (box2 == "X" && box5 == "X" && box8 == "X") {
-                document.getElementById(`gameText`).textContent = `Player 1 wins! Game over.`;
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player1} wins! Game over.`;
                 gameboard.finishGame()
             } else if (box0 == "X" && box4 == "X" && box8 == "X") {
-                document.getElementById(`gameText`).textContent = `Player 1 wins! Game over.`;
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player1} wins! Game over.`;
                 gameboard.finishGame()
             } else if (box2 == "X" && box4 == "X" && box6 == "X") {
-                document.getElementById(`gameText`).textContent = `Player 1 wins! Game over.`;
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player1} wins! Game over.`;
                 gameboard.finishGame()
             } else if (box0 == "O" && box1 == "O" && box2 == "O") {
-                document.getElementById(`gameText`).textContent = `Player 2 wins! Game over.`;
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2} wins! Game over.`;
                 gameboard.finishGame()
             } else if (box3 == "O" && box4 == "O" && box5 == "O") {
-                document.getElementById(`gameText`).textContent = `Player 2 wins! Game over.`;
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2} wins! Game over.`;
                 gameboard.finishGame()
             } else if (box6 == "O" && box7 == "O" && box8 == "O") {
-                document.getElementById(`gameText`).textContent = `Player 2 wins! Game over.`;
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2} wins! Game over.`;
                 gameboard.finishGame()
             } else if (box0 == "O" && box3 == "O" && box6 == "O") {
-                document.getElementById(`gameText`).textContent = `Player 2 wins! Game over.`;
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2} wins! Game over.`;
                 gameboard.finishGame()
             } else if (box1 == "O" && box4 == "O" && box7 == "O") {
-                document.getElementById(`gameText`).textContent = `Player 2 wins! Game over.`;
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2} wins! Game over.`;
                 gameboard.finishGame()
             } else if (box2 == "O" && box5 == "O" && box8 == "O") {
-                document.getElementById(`gameText`).textContent = `Player 2 wins! Game over.`;
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2} wins! Game over.`;
                 gameboard.finishGame()
             } else if (box0 == "O" && box4 == "O" && box8 == "O") {
-                document.getElementById(`gameText`).textContent = `Player 2 wins! Game over.`;
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2} wins! Game over.`;
                 gameboard.finishGame()
             } else if (box2 == "O" && box4 == "O" && box6 == "O") {
-                document.getElementById(`gameText`).textContent = `Player 2 wins! Game over.`;
+                document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2} wins! Game over.`;
                 gameboard.finishGame()
             } 
         },
@@ -149,8 +149,24 @@ const gameboard = (function () {
             controller = 0;
             gameboardArray = ['', '', '', '', '', '', '', '', ''];
             gameboard.playGame();
-            document.getElementById(`gameText`).textContent = `Let the game begin... You're up, Player 1!`;;
+            document.getElementById(`gameText`).textContent = `Let the game begin... You're up, ${gameboard.getPlayers().player1}!`;;
+        },
+
+        getPlayers: function() {
+            const player1 = document.getElementById('player1').value
+            const player2 = document.getElementById('player2').value
+
+            return {
+                player1, player2
+            }
+        },
+
+        openGame: function() {
+            document.getElementById(`nameForm`).style.display = "none";  
+            document.getElementById(`textGameCont`).style.display = "grid";  
         }
+
+
     }
 })();
 
@@ -198,12 +214,28 @@ document.getElementById("resetButton").addEventListener("click", function(){
     gameboard.resetGame();
 });
 
-
-
 // factory function to make a player object for player1 and player2
-const Player = (name) => {
-    const getName  = () => name;
-    return { getName };
+const Player = () => {
+    let player1 = document.getElementById('player1').value
+    let player2 = document.getElementById('player1').value
+
+    return {
+        player1Name: player1,
+        player2Name: player2
+    }
 };
-const player1 = Player('jim');
-const player2 = Player('jeff');
+
+//get player names on click
+const nameForm = document.getElementById("nameForm");
+nameForm.addEventListener("submit", e => {
+    e.preventDefault();
+    if (document.getElementById('player1').value == "") {
+        return
+    } else if (document.getElementById('player2').value == "") { 
+        return
+    } else {
+        gameboard.getPlayers();
+        gameboard.openGame();
+        gameboard.resetGame();
+    }
+});
