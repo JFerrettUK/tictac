@@ -85,52 +85,68 @@ const gameboard = (function () {
           
             if (box0 == "X" && box1 == "X" && box2 == "X") {
                 document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player1} wins! Game over.`;
-                gameboard.finishGame()
+                gameboard.finishGame();
+                gameboard.makeBorderRed(0, 1, 2);
             } else if (box3 == "X" && box4 == "X" && box5 == "X") {
                 document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player1} wins! Game over.`;
                 gameboard.finishGame()
+                gameboard.makeBorderRed(3, 4, 5);
             } else if (box6 == "X" && box7 == "X" && box8 == "X") {
                 document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player1} wins! Game over.`;
                 gameboard.finishGame()
+                gameboard.makeBorderRed(6, 7, 8);
             } else if (box0 == "X" && box3 == "X" && box6 == "X") {
                 document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player1} wins! Game over.`;
-                gameboard.finishGame()
+                gameboard.finishGame();
+                gameboard.makeBorderRed(0, 3, 6);
             } else if (box1 == "X" && box4 == "X" && box7 == "X") {
                 document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player1} wins! Game over.`;
-                gameboard.finishGame()
+                gameboard.finishGame();
+                gameboard.makeBorderRed(1, 4, 7);
             } else if (box2 == "X" && box5 == "X" && box8 == "X") {
                 document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player1} wins! Game over.`;
-                gameboard.finishGame()
+                gameboard.finishGame();
+                gameboard.makeBorderRed(2, 5, 8);
             } else if (box0 == "X" && box4 == "X" && box8 == "X") {
                 document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player1} wins! Game over.`;
-                gameboard.finishGame()
+                gameboard.finishGame();
+                gameboard.makeBorderRed(0, 4, 8);
             } else if (box2 == "X" && box4 == "X" && box6 == "X") {
                 document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player1} wins! Game over.`;
-                gameboard.finishGame()
+                gameboard.finishGame();
+                gameboard.makeBorderRed(2, 4, 6);
             } else if (box0 == "O" && box1 == "O" && box2 == "O") {
                 document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2} wins! Game over.`;
-                gameboard.finishGame()
+                gameboard.finishGame();
+                gameboard.makeBorderRed(0, 1, 2);
             } else if (box3 == "O" && box4 == "O" && box5 == "O") {
                 document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2} wins! Game over.`;
-                gameboard.finishGame()
+                gameboard.finishGame();
+                gameboard.makeBorderRed(3, 4, 5);
             } else if (box6 == "O" && box7 == "O" && box8 == "O") {
                 document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2} wins! Game over.`;
-                gameboard.finishGame()
+                gameboard.finishGame();
+                gameboard.makeBorderRed(6, 7, 8);
             } else if (box0 == "O" && box3 == "O" && box6 == "O") {
                 document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2} wins! Game over.`;
-                gameboard.finishGame()
+                gameboard.finishGame();
+                gameboard.makeBorderRed(0, 3, 6);
             } else if (box1 == "O" && box4 == "O" && box7 == "O") {
                 document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2} wins! Game over.`;
-                gameboard.finishGame()
+                gameboard.finishGame();
+                gameboard.makeBorderRed(1, 4, 7);
             } else if (box2 == "O" && box5 == "O" && box8 == "O") {
                 document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2} wins! Game over.`;
-                gameboard.finishGame()
+                gameboard.finishGame();
+                gameboard.makeBorderRed(2, 5, 8);
             } else if (box0 == "O" && box4 == "O" && box8 == "O") {
                 document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2} wins! Game over.`;
-                gameboard.finishGame()
+                gameboard.finishGame();
+                gameboard.makeBorderRed(0, 4, 8);
             } else if (box2 == "O" && box4 == "O" && box6 == "O") {
                 document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2} wins! Game over.`;
                 gameboard.finishGame()
+                gameboard.makeBorderRed(2, 4, 6);
             } 
             else if ((box0 != '') && (box1 != '') && box2 != '' && box3 != '' && box4 != '' && box5 != '' && box6 != '' && box7 != '' && (box8 != '')) {
                 document.getElementById(`gameText`).textContent = "It's a draw! Game over.";
@@ -168,9 +184,25 @@ const gameboard = (function () {
         openGame: function() {
             document.getElementById(`nameForm`).style.display = "none";  
             document.getElementById(`textGameCont`).style.display = "grid";  
+        },
+
+        makeBorderRed: function(a, b, c) {
+            document.getElementById(`box${a}`).style.borderColor = "red";
+            document.getElementById(`box${b}`).style.borderColor = "red";  
+            document.getElementById(`box${c}`).style.borderColor = "red";  
+        },
+
+        resetBorders: function() {
+            document.getElementById(`box0`).style.borderColor = "#4D3E74";
+            document.getElementById(`box1`).style.borderColor = "#4D3E74"; 
+            document.getElementById(`box2`).style.borderColor = "#4D3E74";
+            document.getElementById(`box3`).style.borderColor = "#4D3E74";
+            document.getElementById(`box4`).style.borderColor = "#4D3E74";
+            document.getElementById(`box5`).style.borderColor = "#4D3E74";
+            document.getElementById(`box6`).style.borderColor = "#4D3E74";
+            document.getElementById(`box7`).style.borderColor = "#4D3E74";
+            document.getElementById(`box8`).style.borderColor = "#4D3E74";
         }
-
-
     }
 })();
 
@@ -216,6 +248,7 @@ document.getElementById("box8").addEventListener("click", function(){
 
 document.getElementById("resetButton").addEventListener("click", function(){
     gameboard.resetGame();
+    gameboard.resetBorders();
 });
 
 // factory function to make a player object for player1 and player2
