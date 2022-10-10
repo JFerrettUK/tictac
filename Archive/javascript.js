@@ -50,6 +50,7 @@ const gameboard = (i) => {
     let box6 = gameboardArrayBase[6]
     let box7 = gameboardArrayBase[7]
     let box8 = gameboardArrayBase[8]
+    console.log(box8)
   
     if (box0 == "X" && box1 == "X" && box2 == "X") {
       document.getElementById(`gameText`).textContent = "Player 1 wins! Game over.";
@@ -99,7 +100,7 @@ const gameboard = (i) => {
     } else if (box2 == "O" && box4 == "O" && box6 == "O") {
       document.getElementById(`gameText`).textContent = "Player 2 wins! Game over.";
       gameWon = true;
-    } 
+    }
   }
 
   gameState(i);

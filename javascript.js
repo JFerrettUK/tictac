@@ -132,6 +132,10 @@ const gameboard = (function () {
                 document.getElementById(`gameText`).textContent = `${gameboard.getPlayers().player2} wins! Game over.`;
                 gameboard.finishGame()
             } 
+            else if ((box0 != '') && (box1 != '') && box2 != '' && box3 != '' && box4 != '' && box5 != '' && box6 != '' && box7 != '' && (box8 != '')) {
+                document.getElementById(`gameText`).textContent = "It's a draw! Game over.";
+                gameboard.finishGame()
+             }
         },
 
         playGame: function(i) {
